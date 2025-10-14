@@ -19,41 +19,25 @@ class MyStatelessApp extends StatelessWidget {
   }
 }
 import 'package:flutter/material.dart';
+void main() => runApp(MaterialApp(home: CounterApp()));
 
-void main() => runApp(MyStatefulApp());
-
-class MyStatefulApp extends StatefulWidget {
+class CounterApp extends StatefulWidget {
   @override
-  _MyStatefulAppState createState() => _MyStatefulAppState();
+  _CounterAppState createState() => _CounterAppState();
 }
 
-class _MyStatefulAppState extends State<MyStatefulApp> {
+class _CounterAppState extends State<CounterApp> {
   int count = 0;
-
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("Stateful Widget")),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("You pressed button $count times",
-                  style: TextStyle(fontSize: 20)),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    count++;
-                  });
-                },
-                child: Text("Press Me"),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: Text("Stateful Widget")),
+    body: Center(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text("You pressed button $count times", style: TextStyle(fontSize: 20)),
+        SizedBox(height: 20),
+        ElevatedButton(onPressed: () => setState(() => count++), child: Text("Press Me"))
+      ]),
+    ),
+  );
 }
+
