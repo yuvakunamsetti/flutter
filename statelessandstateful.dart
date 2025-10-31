@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 void main() => runApp(MyStatelessApp());
-
 class MyStatelessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,12 +18,10 @@ class MyStatelessApp extends StatelessWidget {
 }
 import 'package:flutter/material.dart';
 void main() => runApp(MaterialApp(home: CounterApp()));
-
 class CounterApp extends StatefulWidget {
   @override
   _CounterAppState createState() => _CounterAppState();
 }
-
 class _CounterAppState extends State<CounterApp> {
   int count = 0;
   @override
